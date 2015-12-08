@@ -1,0 +1,5 @@
+Django==1.9
+#django-modeltranslation
+-e git+https://github.com/deschler/django-modeltranslation.git#egg=django-modeltranslation
+#django-tastypie
+-e git+https://github.com/django-tastypie/django-tastypie.git#egg=django-tastypie

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if test ! -x /usr/local/bin/python3 ; then
+    echo "Please install Python3 for Mac OS X first"
+    exit 1
+fi
+
+VENV_DIR=".venv"
+
+if test ! -d $VENV_DIR ; then
+    # Create fresh virtual environment
+    pyvenv $VENV_DIR
+fi
+source $VENV_DIR/bin/activate
+
+pip install --upgrade -r requirements.txt
