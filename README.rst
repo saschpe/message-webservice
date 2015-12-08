@@ -11,8 +11,8 @@ Requirements
 - `Python 3`_
 
 
-Development Environment
------------------------
+Hacking
+-------
 
 This project uses a virtual environment, activate it with this command:
 
@@ -46,6 +46,11 @@ Since there is no real browseable web interface, you'll be redirected to the
 admin interface right away. The REST API is accessible at
 
     http://127.0.0.1:8000/api/v1?format=json
+
+Makes use of two additional Django modules:
+
+    https://django-modeltranslation.readthedocs.org
+    https://django-tastypie.readthedocs.org
 
 
 Deployment
