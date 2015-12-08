@@ -56,7 +56,14 @@ Makes use of two additional Django modules:
 Deployment
 ----------
 
-Based on docker_, to be done...
+The simplest way to deploy this application is via docker_. Assuming you have
+docker_ setup, you can simply do:
+
+.. code:: bash
+
+    ./bin/docker-build
+    ./bin/docker-run
+
 
 
 .. _Python 3: https://www.python.org/downloads/

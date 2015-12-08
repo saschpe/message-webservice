@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Script to pull and deploy message webservice image.
+# Needs root privileges.
+#
+# Author: Sascha Peilicke <sascha.peilicke@hotel.de>
+#
+
+if echo $HOME | grep -v -q "/Users/" ; then
+    if [ "$EUID" -ne 0 ] ; then
+        echo "Please run as root"
+        exit
+    fi
+    # Ensure we have the latest docker binary available (too old on Ubuntu 14.10)
+    if test ! -x /usr/bin/docker || test ! -x /usr/bin/docker || docker --version | grep -q "1.0." ; then
+        wget -N https://get.docker.com/ -O - | sh
+    fi
+else
+    # We're on Mac OS X
+    if test -x /usr/local/bin/boot2docker ; then
+        boot2docker shellinit
+    else
+        # Seems like we use "Docker Toolbox", not the old boot2docker any more...
+        eval "$(docker-machine env default)"
+    fi
+fi
+
+CONTAINER_NAME=message-webservice
+CONTAINER_IMAGE=saschpe/message-webservice
+
+# Update image
+docker pull $CONTAINER_IMAGE
+# Stop and remove old container
+docker kill $CONTAINER_NAME || :
+docker rm $CONTAINER_NAME || :
+
+# Re-run container
+docker run --name $CONTAINER_NAME \
+    -it \
+    -p 8000:8000 \
+    -d \
+    --restart=always \
+    $CONTAINER_IMAGE
+docker inspect $CONTAINER_NAME
