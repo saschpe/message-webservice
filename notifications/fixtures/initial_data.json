@@ -107,35 +107,5 @@
             "title": "Trial",
             "platform": 1
         }
-    },
-    {
-        "model": "notifications.version",
-        "pk": 1,
-        "fields": {
-            "version": "1.2.3",
-            "flavor": 0,
-            "message": 2,
-            "comment": ""
-        }
-    },
-    {
-        "model": "notifications.version",
-        "pk": 2,
-        "fields": {
-            "version": "2.7.0",
-            "flavor": 0,
-            "message": 1,
-            "comment": ""
-        }
-    },
-    {
-        "model": "notifications.version",
-        "pk": 3,
-        "fields": {
-            "version": "2.7.0",
-            "flavor": 1,
-            "message": 2,
-            "comment": "Someone wanted it this way..."
-        }
     }
 ]
