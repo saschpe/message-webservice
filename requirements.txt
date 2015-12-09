@@ -1,5 +1,7 @@
+defusedxml==0.4.1
 Django==1.9
-#django-modeltranslation
--e git+https://github.com/deschler/django-modeltranslation.git#egg=django-modeltranslation
-#django-tastypie
--e git+https://github.com/django-tastypie/django-tastypie.git#egg=django-tastypie
+-e git+https://github.com/deschler/django-modeltranslation.git@a4b9f42d52dff17dbee2b7248fdd0bc618a802c8#egg=django_modeltranslation-master
+-e git+https://github.com/django-tastypie/django-tastypie.git@da9df5abcfcec1c0a659b179edcdfc0d3465e41c#egg=django_tastypie-master
+python-dateutil==2.4.2
+python-mimeparse==0.1.4
+six==1.10.0
