@@ -1,0 +1,141 @@
+[
+    {
+        "model": "notifications.message",
+        "pk": 1,
+        "fields": {
+            "title": "\ud83d\ude2d\ud83d\udd2b   BIG FAIL   \ud83d\ude2d\ud83d\udd2b",
+            "title_en": "\ud83d\ude2d\ud83d\udd2b   BIG FAIL   \ud83d\ude2d\ud83d\udd2b",
+            "title_de": "",
+            "title_fr": "",
+            "title_nl": "",
+            "title_es": "",
+            "title_it": "",
+            "body": "You really need to get rid of this version, better update right away!",
+            "body_en": "You really need to get rid of this version, better update right away!",
+            "body_de": "",
+            "body_fr": "",
+            "body_nl": "",
+            "body_es": "",
+            "body_it": "",
+            "type": "update"
+        }
+    },
+    {
+        "model": "notifications.message",
+        "pk": 2,
+        "fields": {
+            "title": "\ud83c\udf39  Uh oh, we got something...",
+            "title_en": "\ud83c\udf39  Uh oh, we got something...",
+            "title_de": "",
+            "title_fr": "",
+            "title_nl": "",
+            "title_es": "",
+            "title_it": "",
+            "body": "Just check out our cracking new version...",
+            "body_en": "Just check out our cracking new version...",
+            "body_de": "",
+            "body_fr": "",
+            "body_nl": "",
+            "body_es": "",
+            "body_it": "",
+            "type": "info"
+        }
+    },
+    {
+        "model": "notifications.message",
+        "pk": 3,
+        "fields": {
+            "title": "Hi there",
+            "title_en": "Hi there",
+            "title_de": "",
+            "title_fr": "",
+            "title_nl": "",
+            "title_es": "",
+            "title_it": "",
+            "body": "Bla bla",
+            "body_en": "Bla bla",
+            "body_de": "",
+            "body_fr": "",
+            "body_nl": "",
+            "body_es": "",
+            "body_it": "",
+            "type": "info"
+        }
+    },
+    {
+        "model": "notifications.productplatform",
+        "pk": 1,
+        "fields": {
+            "title": "Android"
+        }
+    },
+    {
+        "model": "notifications.productplatform",
+        "pk": 2,
+        "fields": {
+            "title": "iOS"
+        }
+    },
+    {
+        "model": "notifications.productflavor",
+        "pk": 1,
+        "fields": {
+            "title": "Universal",
+            "platform": 2
+        }
+    },
+    {
+        "model": "notifications.productflavor",
+        "pk": 2,
+        "fields": {
+            "title": "iPad",
+            "platform": 2
+        }
+    },
+    {
+        "model": "notifications.productflavor",
+        "pk": 3,
+        "fields": {
+            "title": "Vanilla",
+            "platform": 1
+        }
+    },
+    {
+        "model": "notifications.productflavor",
+        "pk": 4,
+        "fields": {
+            "title": "Trial",
+            "platform": 1
+        }
+    },
+    {
+        "model": "notifications.version",
+        "pk": 1,
+        "fields": {
+            "version": "1.2.3",
+            "flavor": 0,
+            "message": 2,
+            "comment": ""
+        }
+    },
+    {
+        "model": "notifications.version",
+        "pk": 2,
+        "fields": {
+            "version": "2.7.0",
+            "flavor": 0,
+            "message": 1,
+            "comment": ""
+        }
+    },
+    {
+        "model": "notifications.version",
+        "pk": 3,
+        "fields": {
+            "version": "2.7.0",
+            "flavor": 1,
+            "message": 2,
+            "comment": "Someone wanted it this way..."
+        }
+    }
+]
