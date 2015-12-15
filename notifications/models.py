@@ -40,7 +40,7 @@ class ProductFlavor(models.Model):
     platform = models.ForeignKey(ProductPlatform)
 
     def __str__(self):
-        return self.title
+        return self.platform.title + ': ' + self.title
 
 
 class Version(models.Model):
