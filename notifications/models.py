@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Message(models.Model):
@@ -16,6 +17,9 @@ class Message(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     type = models.CharField(max_length=10, choices=MESSAGE_CHOICES, default=MESSAGE_INFO)
+    author = models.ForeignKey(User, editable = False, help_text='The one to ask for details')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['type', 'title']
@@ -52,6 +56,9 @@ class Version(models.Model):
     flavor = models.ForeignKey(ProductFlavor, on_delete=models.CASCADE)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200, blank=True, help_text='Add any information here (not returned by API)')
+    author = models.ForeignKey(User, editable = False, help_text='The one to ask for details')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.version

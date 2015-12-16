@@ -1,11 +1,12 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers, viewsets
 
 from .models import Message, ProductPlatform, ProductFlavor, Version
 
-
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Message
+        fields = ('title', 'body', 'type', 'created_at', 'updated_at')
 
 
 class ProductPlatformSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,13 +17,16 @@ class ProductPlatformSerializer(serializers.HyperlinkedModelSerializer):
 class ProductFlavorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ProductFlavor
+        depth = 1
 
 
 class VersionSerializer(serializers.HyperlinkedModelSerializer):
+    message = MessageSerializer()
+    flavor = ProductFlavorSerializer()
+
     class Meta:
         model = Version
-        fields = ('version', 'flavor', 'message')
-        depth = 2
+        exclude = ('author',)
 
 
 class MessageViewSet(viewsets.ModelViewSet):
