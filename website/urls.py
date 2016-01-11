@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
 from . import views
+
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('notifications.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/versionlist/$', views.VersionList.as_view()),
+
 ]
