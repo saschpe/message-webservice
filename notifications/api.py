@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import serializers, viewsets
+from rest_framework import generics, serializers, viewsets
 from .models import Message, ProductPlatform, ProductFlavor, Version
 
 
@@ -49,7 +49,7 @@ class MessageSerializer(TranslateSerializer):
         fields = ('title', 'body', 'type', 'created_at', 'updated_at')
 
 
-class ProductPlatformSerializer(serializers.HyperlinkedModelSerializer):
+class ProductPlatformSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductPlatform
 
@@ -76,22 +76,43 @@ class VersionMessageSerializer(serializers.ModelSerializer):
         model = Version
         exclude = ('id', 'author', 'comment', 'flavor',)
 
-
-class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-
-
-class ProductPlatformViewSet(viewsets.ModelViewSet):
-    queryset = ProductPlatform.objects.all()
-    serializer_class = ProductPlatformSerializer
-
-
-class ProductFlavorViewSet(viewsets.ModelViewSet):
-    queryset = ProductFlavor.objects.all()
-    serializer_class = ProductFlavorSerializer
-
-
-class VersionViewSet(viewsets.ModelViewSet):
+    
+class AllMessages(generics.ListAPIView):
+    serializer_class = VersionMessageSerializer
     queryset = Version.objects.all()
-    serializer_class = VersionSerializer
+
+
+class PlatformMessages(generics.ListAPIView):
+    serializer_class = VersionMessageSerializer
+    lookup_platform = "platform"
+
+    def get_queryset(self):
+        p = self.kwargs.get(self.lookup_platform)
+        message = Version.objects.filter(flavor__platform__title__iexact=p)
+        return message
+
+
+class FlavorMessages(generics.ListAPIView):
+    serializer_class = VersionMessageSerializer
+    lookup_platform  = "platform"
+    lookup_flavor = "flavor"
+
+    def get_queryset(self):
+        p = self.kwargs.get(self.lookup_platform)
+        f = self.kwargs.get(self.lookup_flavor)
+        message = Version.objects.filter(flavor__platform__title__iexact=p, flavor__title__iexact=f)
+        return message
+
+
+class VersionMessages(generics.ListAPIView):
+    serializer_class = VersionMessageSerializer
+    lookup_platform  = "platform"
+    lookup_flavor    = "flavor"
+    lookup_version   = "version"
+
+    def get_queryset(self):
+        p = self.kwargs.get(self.lookup_platform)
+        f = self.kwargs.get(self.lookup_flavor)
+        v = self.kwargs.get(self.lookup_version)
+        message = Version.objects.filter(flavor__platform__title__iexact=p, flavor__title__iexact=f, version=v)
+        return message

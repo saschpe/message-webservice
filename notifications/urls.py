@@ -1,15 +1,10 @@
 from django.conf.urls import include, url
-from rest_framework import routers
+from .api import *
 
-from .api import MessageViewSet, ProductPlatformViewSet, ProductFlavorViewSet, VersionViewSet
-
-
-router = routers.DefaultRouter()
-router.register(r'messages', MessageViewSet)
-router.register(r'platforms', ProductPlatformViewSet)
-router.register(r'flavors', ProductFlavorViewSet)
-router.register(r'versions', VersionViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'messages/$', AllMessages.as_view()),
+    url(r'messages/(?P<platform>[a-zA-Z_-]+)/$', PlatformMessages.as_view()),
+    url(r'messages/(?P<platform>[a-zA-Z_-]+)/(?P<flavor>[a-zA-Z_-]+)/$', FlavorMessages.as_view()),
+    url(r'messages/(?P<platform>[a-zA-Z_-]+)/(?P<flavor>[a-zA-Z_-]+)/(?P<version>[0-9.]+)/$', VersionMessages.as_view()),
 ]
