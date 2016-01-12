@@ -70,11 +70,16 @@ class VersionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class VersionMessageSerializer(serializers.ModelSerializer):
-    message = MessageSerializer()
+    title    = serializers.ReadOnlyField(source='message.title')
+    body     = serializers.ReadOnlyField(source='message.body')
+    type     = serializers.ReadOnlyField(source='message.type')
+    platform = serializers.ReadOnlyField(source='flavor.platform.title')
+    flavor   = serializers.ReadOnlyField(source='flavor.title')
 
     class Meta:
         model = Version
-        exclude = ('id', 'author', 'comment', 'flavor',)
+        nested = False
+        exclude = ('id', 'message', 'author', 'comment', 'flavor', 'created_at', 'updated_at')
 
     
 class AllMessages(generics.ListAPIView):
