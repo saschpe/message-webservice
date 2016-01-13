@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^api/', include('notifications.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

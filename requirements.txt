@@ -2,8 +2,7 @@ defusedxml==0.4.1
 Django==1.9
 -e git+https://github.com/deschler/django-modeltranslation.git@a4b9f42d52dff17dbee2b7248fdd0bc618a802c8#egg=django_modeltranslation-master
 djangorestframework==3.3.2
-django-filter
-django-crispy-forms
+django-rest-swagger
 python-dateutil==2.4.2
 python-mimeparse==0.1.4
 six==1.10.0
