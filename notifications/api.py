@@ -70,11 +70,11 @@ class VersionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class VersionMessageSerializer(serializers.ModelSerializer):
-    title    = serializers.ReadOnlyField(source='message.title')
-    body     = serializers.ReadOnlyField(source='message.body')
-    type     = serializers.ReadOnlyField(source='message.type')
-    platform = serializers.ReadOnlyField(source='flavor.platform.title')
-    flavor   = serializers.ReadOnlyField(source='flavor.title')
+    title    = serializers.ReadOnlyField(source='message.title', help_text="Message title string")
+    body     = serializers.ReadOnlyField(source='message.body', help_text="Message body string")
+    type     = serializers.ReadOnlyField(source='message.type', help_text="Type string, e.g. \"info\", \"update\", \"kill\"")
+    platform = serializers.ReadOnlyField(source='flavor.platform.title', help_text="Application platform, e.g. \"iOS\"")
+    flavor   = serializers.ReadOnlyField(source='flavor.title', help_text="Application flavor, e.g. \"iPad\"")
 
     class Meta:
         model = Version
