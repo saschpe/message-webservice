@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
+
+
+SLASH_W_VALIDATOR = RegexValidator(regex='\w+', message='Please use alphanumerics or characters')
 
 
 class Message(models.Model):
@@ -31,7 +35,7 @@ class Message(models.Model):
 class ProductPlatform(models.Model):
     '''Product platforms.
     '''
-    title = models.CharField(max_length=64, help_text='Platform name, e.g. "iOS"')
+    title = models.CharField(max_length=64, validators=[SLASH_W_VALIDATOR], help_text='Platform name, e.g. "iOS"')
 
     def __str__(self):
         return self.title
@@ -40,7 +44,7 @@ class ProductPlatform(models.Model):
 class ProductFlavor(models.Model):
     '''Product flavor.
     '''
-    title = models.CharField(max_length=64, help_text='Flavor name, e.g. "universal"')
+    title = models.CharField(max_length=64, validators=[SLASH_W_VALIDATOR], help_text='Flavor name, e.g. "universal"')
     platform = models.ForeignKey(ProductPlatform)
 
     def __str__(self):
@@ -52,7 +56,7 @@ class Version(models.Model):
 
     Maps specific messages to product platforms / flavors.
     '''
-    version = models.CharField(max_length=32, help_text='Version string, e.g. "1.2.3"')
+    version = models.CharField(max_length=32, validators=[SLASH_W_VALIDATOR], help_text='Version string, e.g. "1.2.3"')
     flavor = models.ForeignKey(ProductFlavor, on_delete=models.CASCADE)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200, blank=True, help_text='Add any information here (not returned by API)')
