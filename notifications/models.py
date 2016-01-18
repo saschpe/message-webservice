@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
 
-SLASH_W_VALIDATOR = RegexValidator(regex='\w+', message='Please use alphanumerics or characters')
+SLASH_W_VALIDATOR = RegexValidator(regex='\w+', message='Only alphanumerics or characters allowed')
+SLASH_W_PUNCTUATION_VALIDATOR = RegexValidator(regex='[\w.]+', message='Only alphanumerics, characters and \'.\' allowed')
+
 
 
 class Message(models.Model):
@@ -56,7 +58,7 @@ class Version(models.Model):
 
     Maps specific messages to product platforms / flavors.
     '''
-    version = models.CharField(max_length=32, validators=[SLASH_W_VALIDATOR], help_text='Version string, e.g. "1.2.3"')
+    version = models.CharField(max_length=32, validators=[SLASH_W_PUNCTUATION_VALIDATOR], help_text='Version string, e.g. "1.2.3"')
     flavor = models.ForeignKey(ProductFlavor, on_delete=models.CASCADE)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200, blank=True, help_text='Add any information here (not returned by API)')
