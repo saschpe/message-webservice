@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python manage.py dumpdata notifications | python -m json.tool > notifications/fixtures/initial_data.json
