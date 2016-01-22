@@ -20,17 +20,18 @@ This project uses a virtual environment, activate it with this command:
 
     source .venv/bin/activate
 
-To install all the projects dependencies:
+To install all the project's development dependencies:
 
 .. code:: bash
 
-    pip install -r requirements.txt
+    pip install -r requirements/dev.txt
 
-To set up the database run:
+To set up the database and load initial data run:
 
 .. code:: bash
 
     python manage.py migrate
+    python manage.py loaddata notifications/fixtures/initial_data.json
 
 To set up a (super) user for the admin interface:
 
