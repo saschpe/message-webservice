@@ -4,8 +4,11 @@ ALLOWED_HOSTS = '0.0.0.0'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sqlserver_pymssql',
+        'HOST': 'tsf-db-01.prod.hotel.de:1433',
+        'NAME': 'message-service',
+        'USER': 'messaging-service',
+        'PASSWORD': 'm1*Ess=7Ag!e'
     }
 }
 
