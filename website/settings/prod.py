@@ -1,6 +1,6 @@
 from website.settings import *
 
-ALLOWED_HOSTS = '0.0.0.0'
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -16,9 +16,9 @@ DATABASES = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-CSRF_COOKIE_HTTPONLY = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_HTTPONLY = True
+#CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 
 # Clickjacking prevention
 X_FRAME_OPTIONS = 'DENY'

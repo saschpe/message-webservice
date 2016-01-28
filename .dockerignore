@@ -1,0 +1,12 @@
+.venv
+*.sqlite
+.git*
+.dockerignore
+*.pyc
+**/__pycache__
+Dockerfile
+README.rst
+Session.vim
+bin/
+requirements/dev.txt
+website/settings/dev.py

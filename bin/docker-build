@@ -27,7 +27,7 @@ fi
 
 
 IMAGE=saschpe/message-webservice
-VERSION=0.1
+VERSION=0.2
 
 docker build -t ${IMAGE}:${VERSION} .
 docker tag -f ${IMAGE}:${VERSION} ${IMAGE}:latest

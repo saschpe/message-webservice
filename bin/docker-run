@@ -37,7 +37,7 @@ docker rm $CONTAINER_NAME || :
 # Re-run container
 docker run --name $CONTAINER_NAME \
     -it \
-    -p 8000:8000 \
+    -p 81:80 \
     -d \
     --restart=always \
     $CONTAINER_IMAGE
