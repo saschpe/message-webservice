@@ -135,6 +135,9 @@ LANGUAGES = (
     ('nl', gettext('Dutch')),
     ('es', gettext('Spanish')),
     ('it', gettext('Italian')),
+    ('ja', gettext('Japanese')),
+    ('zh', gettext('Chinese')),
+    ('pt-br', gettext('Portugese (Brasilian)')),
 )
 
 
