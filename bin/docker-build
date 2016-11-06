@@ -3,7 +3,7 @@
 # Script to build message webservice docker image.
 # Needs root privileges.
 #
-# Author: Sascha Peilicke <sascha.peilicke@hotel.de>
+# Author: Sascha Peilicke <sascha@peilicke.de>
 #
 
 if echo $HOME | grep -v -q "/Users/" ; then

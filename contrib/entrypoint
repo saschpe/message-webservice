@@ -5,7 +5,7 @@
 export DJANGO_SETTINGS_MODULE="website.settings.prod"
 python3 manage.py migrate
 python3 manage.py loaddata notifications/fixtures/initial_data.json
-echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'team_mobile@hotel.de', 'HDE2014!')" | python3 manage.py shell
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'USER', 'PASSWORD')" | python3 manage.py shell
 
 service nginx start
 supervisord -n
