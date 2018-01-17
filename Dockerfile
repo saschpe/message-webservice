@@ -1,5 +1,5 @@
 FROM ubuntu:wily
-MAINTAINER Sascha Peilicke <sascha.peilicke@hotel.de>
+MAINTAINER Sascha Peilicke <sascha@peilicke.de>
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y \
