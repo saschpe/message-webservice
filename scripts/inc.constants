@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Collection of shared constants
+#
+
+DOCKER_IMAGE=saschpe/message-webservice
+DOCKER_IMAGE_VERSION=0.2

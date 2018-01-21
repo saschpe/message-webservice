@@ -62,8 +62,8 @@ docker_ setup, you can simply do:
 
 .. code:: bash
 
-    ./bin/docker-build
-    ./bin/docker-run
+    ./scripts/docker/build
+    ./scripts/docker/run
 
 
 

@@ -1,9 +1,12 @@
-FROM ubuntu:wily
-MAINTAINER Sascha Peilicke <sascha@peilicke.de>
+FROM ubuntu
+LABEL maintainer="Sascha Peilicke <sascha@peilicke.de"
+LABEL description="A Django website that provides pull notifications to subscribers (such as Android or iOS apps). Apps can query messages based on their version."
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y \
-        gcc git python3-pip python3-dev freetds-dev libyaml-dev \
+        gcc git \
+        python3-pip python3-dev python3-setuptools python3-wheel \
+        freetds-dev libyaml-dev \
         nginx supervisor \
     --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
