@@ -3,4 +3,4 @@ django-modeltranslation==0.11rc2
 -e git+https://bitbucket.org/denisenkom/django-mssql@django1.9-support#egg=django-mssql
 django-pymssql==1.7.1
 django-rest-swagger==0.3.4
-djangorestframework==3.11.2
+djangorestframework==3.15.2
